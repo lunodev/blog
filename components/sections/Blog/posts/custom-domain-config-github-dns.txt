@@ -1,0 +1,13 @@
+source: https://stackoverflow.com/questions/54059217/how-to-fix-domain-does-not-resolve-to-the-github-pages-server-error-in-github
+
+I have tried contacting my registrar and they said that everything in the DNS record seem fine and they get the following results:
+
+A records :
+
+ example.com            21460  IN      A      185.199.111.153
+ example.com            21460  IN      A      185.199.109.153
+ example.com            21460  IN      A      185.199.110.153
+ example.com            21460  IN      A      185.199.108.153
+
+CNAME :
+www.example.com        7199    IN      CNAME  username.github.io.

@@ -3,22 +3,23 @@ import fs from 'fs';
 import path from 'path';
 import matter, {} from 'gray-matter';
 import {marked} from 'marked';
-import styles from "../../styles/Home.module.css";
 
-const BlogPost = (props: {
+
+export default function BlogPost (props: {
     frontMatter: { [key: string]: string },
     slug: string,
     content: string,
-}) => (
-    <div className={styles.container}>
-        <div className='prose prose-sm sm:prose lg:prose-lg mx-auto prose-slate'>
-            <img src={props.frontMatter.thumbnail} alt={props.frontMatter.title} />
-            <div dangerouslySetInnerHTML={{__html: marked(props.content)}}/>
+}){
+    return (
+        <div>
+            <div className='prose prose-sm sm:prose lg:prose-lg mx-auto prose-slate'>
+                {/*<img src={props.frontMatter.thumbnail} alt={props.frontMatter.title} />*/}
+                <div dangerouslySetInnerHTML={{__html: marked(props.content)}}/>
+            </div>
         </div>
-    </div>
-);
+    );
+}
 
-export default BlogPost;
 
 export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('posts'))

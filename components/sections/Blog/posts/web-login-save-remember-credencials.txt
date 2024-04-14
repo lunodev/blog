@@ -1,0 +1,36 @@
+* SOURCES
+------------------------
+https://web.dev/articles/security-credential-management-save-forms?hl=es-419
+
+* PALABRAS CLAVES [es, it, en]
+------------------------
+AUTOCOMPLETADO, compilazione automatica, autofill
+WEB, web, web
+CREDENCIALES, credenziali, credentials
+AUTENTICACION, accesso, login
+CORREO ELECTRONICO, posta elettronica, email
+CONTRASEÑA, parola d'ordine, password
+USUARIO, utente, user
+EXPERIENCIA, esperienza, experience
+SEGURIDAD, sicurezza, security
+
+* OBJETIVO
+------------------------
+Asegurar que el navegador permita memorizar las
+credenciales del usuario al autenticarse (formulario de login o autenticación) en el sitio web
+
+* CASO DE USO
+------------------------
+Usuario debe autenticarse en la web con su nombre de usuario (o correo) y contraseña
+a través del formulario de "login" disponible para este fin.
+
+* PASOS A TENER EN CUENTA EN EL MAQUETADO
+------------------------
+1) Incluye autocomplete en cada campo de entrada (input) del formulario
+Esto es valido para otros tipos de formularios, pero este formulario sera
+de tipo "autenticación de usuario" o "login"
+------------
+
+2) Impedir que se envíe el formulario en la forma tradicional (nativa)
+------------
+

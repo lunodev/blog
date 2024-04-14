@@ -1,0 +1,51 @@
+import {useAppDispatch, useAppSelector} from "../app/hooks";
+import {useEffect, useState} from "react";
+import {LANG_CODE, LANG_EN} from "../constants/languages";
+import {setCurrentLang} from "../reducers/langSelector";
+import useLocalStorage from "./useLocalStorage";
+import {LOCAL_STORAGE_KEYS} from "../constants/localStorageKeys";
+
+
+function useLangSelector() {
+    const {
+        localStorageValue,
+        updateLocalStorageValue,
+    } = useLocalStorage(LOCAL_STORAGE_KEYS.LANGUAGE);
+    // const dispatch = useAppDispatch();
+    // const langSelector = useAppSelector(state => state.langSelector);
+
+    const [currentLang, updateCurrentLang] = useState<LANG_CODE>(LANG_EN);
+
+
+    // const updateLangOnReduxStore = () => dispatch(setCurrentLang(currentLang));
+
+
+    // useEffect(() => {
+    //     !localStorageValue && updateLocalStorageValue(langSelector.value);
+    // }, []);
+
+    // useEffect(() => {
+    //     console.log("currentLang = ", currentLang)
+    //     updateLangOnReduxStore();
+    //     updateLocalStorageValue(currentLang);
+    // }, [currentLang]);
+
+    useEffect(() => {
+        localStorageValue &&
+        updateCurrentLang(localStorageValue as LANG_CODE);
+    }, []);
+
+    useEffect(() => {
+        currentLang !== localStorageValue &&
+        updateLocalStorageValue(localStorageValue as LANG_CODE);
+    }, [currentLang]);
+
+
+    return ({
+        currentLang,
+        updateCurrentLang,
+    })
+}
+
+
+export default useLangSelector;
